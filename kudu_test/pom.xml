@@ -1,0 +1,291 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.upchina.test</groupId>
+	<artifactId>kudu_test</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<scala.version>2.11.8</scala.version>
+		<spark.version>2.0.0</spark.version>
+		<maven.scala.version>2.11.8</maven.scala.version>
+		<scala.binary.version>2.11</scala.binary.version>
+		<kudu.version>1.10.0</kudu.version>
+	</properties>
+	<dependencies>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+
+
+		<!-- kudu client -->
+
+		<dependency>
+			<groupId>org.apache.kudu</groupId>
+			<artifactId>kudu-client</artifactId>
+			<version>${kudu.version}</version>
+
+
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kudu</groupId>
+			<artifactId>kudu-client-tools</artifactId>
+			<version>${kudu.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kudu</groupId>
+			<artifactId>kudu-spark2_2.11</artifactId>
+			<version>${kudu.version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.kudu/kudu-spark2 -->
+		<!-- <dependency> <groupId>org.apache.kudu</groupId> <artifactId>kudu-spark2_2.11</artifactId> 
+			<version>1.10.0-cdh6.3.1</version> </dependency> <dependency> <groupId>org.apache.kudu</groupId> 
+			<artifactId>kudu-client</artifactId> <version>1.10.0-cdh6.3.1</version> </dependency> 
+			<dependency> <groupId>org.apache.kudu</groupId> <artifactId>kudu-client-tools</artifactId> 
+			<version>1.10.0-cdh6.3.1</version> </dependency> -->
+
+		<!-- <dependency> <groupId>com.vdurmont</groupId> <artifactId>emoji-java</artifactId> 
+			<version>4.0.0</version> </dependency> <dependency> <groupId>org.scala-lang</groupId> 
+			<artifactId>scala-library</artifactId> <version>2.11.8</version> <scope>compile</scope> 
+			</dependency> -->
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-server</artifactId>
+			<version>1.2.0-cdh5.13.0</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-compiler</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-client</artifactId>
+			<version>1.2.0-cdh5.8.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-hdfs -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>2.6.0-cdh5.8.2</version>
+
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hbase</groupId>
+			<artifactId>hbase-common</artifactId>
+			<version>1.2.0-cdh5.8.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>hadoop-core</artifactId>
+					<groupId>org.apache.hadoop</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.htrace</groupId>
+			<artifactId>htrace-core4</artifactId>
+			<version>4.2.0-incubating</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-reflect</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-actors</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scalap</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest_${scala.binary.version}</artifactId>
+			<version>2.2.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.scopt</groupId>
+			<artifactId>scopt_2.11</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_2.11</artifactId>
+			<version>${spark.version}</version>
+
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-sql_2.11</artifactId>
+			<version>${spark.version}</version>
+
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-hive_2.11</artifactId>
+			<version>${spark.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-streaming_2.11</artifactId>
+			<version>${spark.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.40</version>
+		</dependency>
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>19.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.0.56.Final</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>UTF-8</encoding>
+					<maxmem>1024m</maxmem>
+					<fork>true</fork>
+					<compilerArgs>
+						<arg>-Xlint:all,-serial,-path</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>
+			</plugin>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>scala-maven-plugin</artifactId>
+				<version>3.2.2</version>
+				<executions>
+					<execution>
+						<id>eclipse-add-source</id>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile-first</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>attach-scaladocs</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>doc-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+					<recompileMode>incremental</recompileMode>
+					<useZincServer>true</useZincServer>
+					<args>
+						<arg>-unchecked</arg>
+						<arg>-deprecation</arg>
+						<arg>-feature</arg>
+					</args>
+					<jvmArgs>
+						<jvmArg>-Xms1024m</jvmArg>
+						<jvmArg>-Xmx1024m</jvmArg>
+						<!-- <jvmArg>-XX:PermSize=${PermGen}</jvmArg> <jvmArg>-XX:MaxPermSize=${MaxPermGen}</jvmArg> 
+							<jvmArg>-XX:ReservedCodeCacheSize=${CodeCacheSize}</jvmArg> -->
+					</jvmArgs>
+					<javacArgs>
+						<javacArg>-source</javacArg>
+						<javacArg>${java.version}</javacArg>
+						<javacArg>-target</javacArg>
+						<javacArg>${java.version}</javacArg>
+						<javacArg>-Xlint:all,-serial,-path</javacArg>
+					</javacArgs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<artifactSet>
+						<includes>
+							<include>mysql:mysql-connector-java:jar:*</include>
+							<include>com.github.scopt:scopt_2.11:jar:* </include>
+							<include>org.apache.htrace:htrace-core:jar:*</include>
+							<include>org.json:json:jar:*</include>
+							<include>org.apache.kudu:kudu-client:jar:*</include>
+							<include>org.apache.kudu:kudu-spark2_2.11:jar:*</include>
+							<include>org.apache.kudu:kudu-client-tools:jar:*</include>
+							<!-- <include>com.oracle.ojdbc6:ojdbc6:jar:*</include> -->
+						</includes>
+					</artifactSet>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
